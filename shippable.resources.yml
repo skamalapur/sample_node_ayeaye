@@ -4,14 +4,22 @@ resources:
 
 ################################
 
-# add TEST environment
+# add environment
 
-# add TEST env - AWS cluster
-  - name: env-test-ecs
+# add TEST env - Google GKE
+  - name: env-test-gke
     type: cluster
-    integration: ttrahan-aws
+    integration: ttrahan-gke
     pointer:
-      sourceName : "demo-shippable-ecs-test"
+      sourceName : "demo-shippable-gke-test"
+      region: "us-east-1"
+
+# add PROD env - Google GKE
+  - name: env-prod-gke
+    type: cluster
+    integration: ttrahan-gke
+    pointer:
+      sourceName : "demo-shippable-gke"
       region: "us-east-1"
 
 ################################
@@ -21,7 +29,7 @@ resources:
     type: image
     integration: ttrahan-dh
     pointer:
-      sourceName: ttrahan/sample-node-ayeaye
+      sourceName: ttrahan/sample_node_ayeaye
       isPull: false
     seed:
       versionName: master.1
@@ -32,6 +40,16 @@ resources:
     version:
       memory: 64
       cpuShares: 128
+      portMappings:
+        - 80:80
+      publishAllPorts : true
+
+# Docker Image Options
+  - name: img-opts-sample-prod
+    type: dockerOptions
+    version:
+      memory: 128
+      cpuShares: 256
       portMappings:
         - 80:80
       publishAllPorts : true
