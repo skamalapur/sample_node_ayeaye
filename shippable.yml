@@ -3,7 +3,7 @@ language: node_js
 
 branches:
   only:
-    - master
+    - gke
 
 env:
   global:
@@ -47,7 +47,7 @@ integrations:
         - versionName=$BRANCH.$BUILD_NUMBER
       branches:
         only:
-          - master
+          - gke
       on_success: always
       on_failure: never
       on_start: never
