@@ -8,7 +8,7 @@ branches:
 env:
   global:
     - REPO=sample_node_ayeaye
-    - DOCKER_HUB_URL=ttrahan # {account name}
+    - DOCKER_HUB_URL=skamalapur # {account name}
     - AMAZON_ECR_URL=288971733297.dkr.ecr.us-east-1.amazonaws.com # {AWS account ID}.dkr.ecr.us-east-1
     - QUAY_URL="quay.io/ttrahan" # quay.io/{account name}
 
@@ -16,19 +16,19 @@ build:
   ci:
     - echo 'CI is running'
   post_ci:
-    - docker build -t ttrahan/$REPO:$BRANCH.$BUILD_NUMBER .
+    - docker build -t skamalapur/$REPO:$BRANCH.$BUILD_NUMBER .
 
     # Pushing to different registries
 
     # # ECR
-    # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
+    # - docker tag skamalapur/$REPO:$BRANCH.$BUILD_NUMBER $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
     # - docker push $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
     # DockerHub
     - docker push $DOCKER_HUB_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
     # # Quay.io
-    # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $QUAY_URL/$REPO:$BRANCH.$BUILD_NUMBER
+    # - docker tag skamalapur/$REPO:$BRANCH.$BUILD_NUMBER $QUAY_URL/$REPO:$BRANCH.$BUILD_NUMBER
     # - docker push $QUAY_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
 
@@ -36,7 +36,7 @@ integrations:
   hub:
     # - integrationName: ttrahan-ecr
     #   type: ecr
-    - integrationName: ttrahan-dh
+    - integrationName: ayeaye_integration
       type: docker
     # - integrationName: ttrahan-quay
     #   type: quay.io
