@@ -9,27 +9,27 @@ resources:
 # add TEST env - Google GKE
   - name: env-test-gke
     type: cluster
-    integration: ttrahan-gke
+    integration: GKE_Credentials
     pointer:
-      sourceName : "demo-shippable-gke-test"
-      region: "us-east-1"
+      sourceName : "shippable-poc"
+      region: "asia-east1-c"
 
 # add PROD env - Google GKE
-  - name: env-prod-gke
-    type: cluster
-    integration: ttrahan-gke
-    pointer:
-      sourceName : "demo-shippable-gke"
-      region: "us-east-1"
+#  - name: env-prod-gke
+#    type: cluster
+#    integration: ttrahan-gke
+#    pointer:
+#      sourceName : "demo-shippable-gke"
+#     region: "us-east-1"
 
 ################################
 
 # Docker Image
   - name: img-sample
     type: image
-    integration: ttrahan-dh
+    integration: ayeaye_integration
     pointer:
-      sourceName: ttrahan/sample_node_ayeaye
+      sourceName: skamalapur/sample_node_ayeaye
       isPull: false
     seed:
       versionName: master.1
@@ -45,13 +45,13 @@ resources:
       publishAllPorts : true
 
 # Docker Image Options
-  - name: img-opts-sample-prod
-    type: dockerOptions
-    version:
-      memory: 128
-      cpuShares: 256
-      portMappings:
-        - 80:80
-      publishAllPorts : true
+#  - name: img-opts-sample-prod
+#    type: dockerOptions
+#    version:
+#      memory: 128
+#      cpuShares: 256
+#      portMappings:
+#        - 80:80
+#      publishAllPorts : true
 
 # ################################

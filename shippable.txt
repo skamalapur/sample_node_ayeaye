@@ -1,0 +1,15 @@
+user account - linked to githu
+vault - security info
+
+stores creds
+assign to be used by subs
+
+provision for other users
+
+Sharing credentials ??
+
+distributed at run time...
+
+
+
+
