@@ -22,16 +22,15 @@ jobs:
     type: deploy
     steps:
       - IN: man-sample
-      - IN: trigger-test-deploy-sample
       - IN: env-test-gke
       - TASK: managed
 
 # TEST deployment for sample app to Google GKE
-  - name: prod-gke-sample
-    type: deploy
-    steps:
-      - IN: test-gke-sample
-      - IN: img-opts-sample-prod
-      - IN: trigger-test-deploy-sample
-      - IN: env-prod-gke
-      - TASK: managed
+#  - name: prod-gke-sample
+#    type: deploy
+#    steps:
+#      - IN: test-gke-sample
+#     - IN: img-opts-sample-prod
+#      - IN: trigger-test-deploy-sample
+#      - IN: env-prod-gke
+#     - TASK: managed
