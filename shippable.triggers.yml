@@ -3,3 +3,7 @@ triggers:
     type: trigger
     version:
       message: 'testing trigger in TEST'
+  - name: trigger-prod-deploy-sample
+    type: trigger
+    version:
+      message: 'testing trigger in Prod'
